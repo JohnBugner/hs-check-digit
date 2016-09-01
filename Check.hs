@@ -33,7 +33,7 @@ isNormal t =
         all isNormal' (Extra.List.range 0 limit)
 
 -- Simplifies checking the check digit at the end.
--- If the end value (from 'get') is 0, then the list is valid.
+-- If the list's end value (from 'get') is 0, then it's valid.
 isDiagonal :: Matrix Int -> Bool
 isDiagonal t =
     let
@@ -49,4 +49,4 @@ isLatin t =
         isLatin' :: [Int] -> Bool
         isLatin' is = length (Data.List.group is) == limit
     in
-        (all isLatin' t) && (all isLatin' (Extra.Matrix.transpose t))
+        (all isLatin' t) && (all isLatin' (Data.List.transpose t))
