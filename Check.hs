@@ -68,3 +68,18 @@ isTotallyAntiSymmetric t =
                 all isTotallyAntiSymmetric'' (map toTuple (Extra.List.combinations 2 (Extra.List.range 0 limit)))
     in
         all isTotallyAntiSymmetric' (Extra.List.range 0 limit)
+
+isGermanicTotallyAntiSymmetric :: Matrix Int -> Bool
+isGermanicTotallyAntiSymmetric t =
+    let
+        get' :: Int -> Int -> Int
+        get' = Extra.Matrix.get t
+        isGermanicTotallyAntiSymmetric' :: Int -> Bool
+        isGermanicTotallyAntiSymmetric' a =
+            let
+                isGermanicTotallyAntiSymmetric'' :: Int -> Bool
+                isGermanicTotallyAntiSymmetric'' i = (a `get'` 1 `get'` i) /= (a `get'` i `get'` 0)
+            in
+                all isGermanicTotallyAntiSymmetric'' (Extra.List.range 3 10)
+    in
+        all isGermanicTotallyAntiSymmetric' (Extra.List.range 0 limit)

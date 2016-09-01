@@ -11,6 +11,7 @@ main = do
     (print (Check.isDiagonal table))
     (print (Check.isLatin table))
     (print (Check.isTotallyAntiSymmetric table))
+    (print (Check.isGermanicTotallyAntiSymmetric table))
 
 table :: Matrix Int
 table =
