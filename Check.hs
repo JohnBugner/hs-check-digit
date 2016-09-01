@@ -50,3 +50,21 @@ isLatin t =
         isLatin' is = length (Data.List.group is) == limit
     in
         (all isLatin' t) && (all isLatin' (Data.List.transpose t))
+
+-- Detects every 'ab' -> 'ba' error.
+isTotallyAntiSymmetric :: Matrix Int -> Bool
+isTotallyAntiSymmetric t =
+    let
+        get' :: Int -> Int -> Int
+        get' = Extra.Matrix.get t
+        isTotallyAntiSymmetric' :: Int -> Bool
+        isTotallyAntiSymmetric' a =
+            let
+                toTuple :: [a] -> (a, a)
+                toTuple as = (as !! 0, as !! 1)
+                isTotallyAntiSymmetric'' :: (Int, Int) -> Bool
+                isTotallyAntiSymmetric'' (y, x) = (a `get'` y `get'` x) /= (a `get'` x `get'` y)
+            in
+                all isTotallyAntiSymmetric'' (map toTuple (Extra.List.combinations 2 (Extra.List.range 0 limit)))
+    in
+        all isTotallyAntiSymmetric' (Extra.List.range 0 limit)
