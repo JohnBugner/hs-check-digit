@@ -16,3 +16,6 @@ tail as =
 
 filterMap :: (a -> Maybe b) -> [a] -> [b]
 filterMap f as = map Data.Maybe.fromJust (filter Data.Maybe.isJust (map f as))
+
+range :: Int -> Int -> [Int]
+range start end = [start .. end - 1]
