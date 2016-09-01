@@ -1,10 +1,10 @@
 module Check where
 
-import qualified Data.List (group)
+import qualified Data.List
 
-import qualified Extra.List (range)
+import qualified Extra.List
 import Extra.Matrix (Matrix)
-import qualified Extra.Matrix (get, transpose)
+import qualified Extra.Matrix
 
 limit :: Int
 limit = 10

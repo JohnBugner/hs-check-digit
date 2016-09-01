@@ -1,6 +1,6 @@
 module Main where
 
-import qualified Check (isClosed, isNormal, isDiagonal, isLatin)
+import qualified Check
 
 import Extra.Matrix (Matrix)
 
