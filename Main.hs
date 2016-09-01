@@ -1,12 +1,13 @@
 module Main where
 
-import qualified Check (isNormal, isLatin)
+import qualified Check (isNormal, isDiagonal, isLatin)
 
 import Extra.Matrix (Matrix)
 
 main :: IO ()
 main = do
     (print (Check.isNormal table))
+    (print (Check.isDiagonal table))
     (print (Check.isLatin table))
 
 table :: Matrix Int
