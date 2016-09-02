@@ -9,7 +9,7 @@ import qualified Extra.Matrix
 limit :: Int
 limit = 10
 
--- Makes 
+-- Makes the check digit part of the same set as the rest of the digits.
 isClosed :: Matrix Int -> Bool
 isClosed =
     let
