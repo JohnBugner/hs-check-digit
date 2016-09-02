@@ -24,6 +24,7 @@ check table = do
     (print' $ concat [show (Check.isGermanicTotallyAntiSymmetric table), " : germanic totally anti-symmetric"])
     (print' "--------------------")
 
+-- Tables were created Michael Damm.
 tableA :: Matrix Int
 tableA =
     [ [0,3,1,7,5,9,8,6,4,2]

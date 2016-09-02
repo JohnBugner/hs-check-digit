@@ -69,6 +69,7 @@ isTotallyAntiSymmetric t =
     in
         all isTotallyAntiSymmetric' (Extra.List.range 0 limit)
 
+-- Detects every '1a' -> 'a0' error, where is between 3 and 9 inclusive.
 isGermanicTotallyAntiSymmetric :: Matrix Int -> Bool
 isGermanicTotallyAntiSymmetric t =
     let
