@@ -24,7 +24,7 @@ check table = do
         print' :: String -> IO ()
         print' = putStrLn . id
 
--- Tables were created Michael Damm.
+-- Tables were created by Michael Damm.
 tableA :: Matrix Int
 tableA =
     [ [0,3,1,7,5,9,8,6,4,2]
