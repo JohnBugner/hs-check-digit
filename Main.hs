@@ -2,27 +2,27 @@ module Main where
 
 import qualified Check
 
-import Extra.Matrix (Matrix)
+import Extra.Matrix
 
 main :: IO ()
 main = do
-    (check tableA)
-    (check tableB)
-    (check tableC)
-
-print' :: String -> IO ()
-print' = putStrLn . id
+    check tableA
+    check tableB
+    check tableC
 
 check :: Matrix Int -> IO ()
 check table = do
-    (print' "--------------------")
-    (print' $ concat [show (Check.isClosed table), " : closed"])
-    (print' $ concat [show (Check.isNormal table), " : normal"])
-    (print' $ concat [show (Check.isDiagonal table), " : diagonal"])
-    (print' $ concat [show (Check.isLatin table), " : latin"])
-    (print' $ concat [show (Check.isTotallyAntiSymmetric table), " : totally anti-symmetric"])
-    (print' $ concat [show (Check.isGermanicTotallyAntiSymmetric table), " : germanic totally anti-symmetric"])
-    (print' "--------------------")
+    print' "--------------------"
+    print' $ concat [show (Check.isClosed table), " : closed"]
+    print' $ concat [show (Check.isNormal table), " : normal"]
+    print' $ concat [show (Check.isDiagonal table), " : diagonal"]
+    print' $ concat [show (Check.isLatin table), " : latin"]
+    print' $ concat [show (Check.isTotallyAntiSymmetric table), " : totally anti-symmetric"]
+    print' $ concat [show (Check.isGermanicTotallyAntiSymmetric table), " : germanic totally anti-symmetric"]
+    print' "--------------------"
+    where
+        print' :: String -> IO ()
+        print' = putStrLn . id
 
 -- Tables were created Michael Damm.
 tableA :: Matrix Int
