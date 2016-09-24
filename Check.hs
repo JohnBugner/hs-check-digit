@@ -1,12 +1,13 @@
 module Check where
 
-import Data.List
-import Data.Ix
+import Data.List (group, transpose)
+import Data.Ix (range)
 
-import Extra.List
-import Extra.Matrix
-import Extra.Number
+import Extra.List (combinations)
+import Extra.Matrix (Matrix, get)
+import Extra.Number (inc)
 
+-- Base 10 Limit
 limit :: Int
 limit = 9
 

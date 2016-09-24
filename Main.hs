@@ -1,8 +1,8 @@
 module Main where
 
-import qualified Check
+import Check
 
-import Extra.Matrix
+import Extra.Matrix (Matrix)
 
 main :: IO ()
 main = do
@@ -13,12 +13,12 @@ main = do
 check :: Matrix Int -> IO ()
 check table = do
     print' "--------------------"
-    print' $ concat [show (Check.isClosed table), " : closed"]
-    print' $ concat [show (Check.isNormal table), " : normal"]
-    print' $ concat [show (Check.isDiagonal table), " : diagonal"]
-    print' $ concat [show (Check.isLatin table), " : latin"]
-    print' $ concat [show (Check.isTotallyAntiSymmetric table), " : totally anti-symmetric"]
-    print' $ concat [show (Check.isGermanicTotallyAntiSymmetric table), " : germanic totally anti-symmetric"]
+    print' $ concat [show (isClosed table), " : closed"]
+    print' $ concat [show (isNormal table), " : normal"]
+    print' $ concat [show (isDiagonal table), " : diagonal"]
+    print' $ concat [show (isLatin table), " : latin"]
+    print' $ concat [show (isTotallyAntiSymmetric table), " : totally anti-symmetric"]
+    print' $ concat [show (isGermanicTotallyAntiSymmetric table), " : germanic totally anti-symmetric"]
     print' "--------------------"
     where
         print' :: String -> IO ()
