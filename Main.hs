@@ -11,18 +11,19 @@ main = do
     check tableC
 
 check :: Matrix Int -> IO ()
-check table = do
-    print' "--------------------"
-    print' $ concat [show (isClosed table), " : closed"]
-    print' $ concat [show (isNormal table), " : normal"]
-    print' $ concat [show (isDiagonal table), " : diagonal"]
-    print' $ concat [show (isLatin table), " : latin"]
-    print' $ concat [show (isTotallyAntiSymmetric table), " : totally anti-symmetric"]
-    print' $ concat [show (isGermanicTotallyAntiSymmetric table), " : germanic totally anti-symmetric"]
-    print' "--------------------"
-    where
+check table =
+    let
         print' :: String -> IO ()
         print' = putStrLn . id
+    in do
+        print' "--------------------"
+        print' $ concat [show (isClosed table), " : closed"]
+        print' $ concat [show (isNormal table), " : normal"]
+        print' $ concat [show (isDiagonal table), " : diagonal"]
+        print' $ concat [show (isLatin table), " : latin"]
+        print' $ concat [show (isTotallyAntiSymmetric table), " : totally anti-symmetric"]
+        print' $ concat [show (isGermanicTotallyAntiSymmetric table), " : germanic totally anti-symmetric"]
+        print' "--------------------"
 
 -- Tables were created by Michael Damm.
 tableA :: Matrix Int
