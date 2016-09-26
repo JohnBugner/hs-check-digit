@@ -27,35 +27,35 @@ isClosed =
 
 -- Makes leading 0's not affect the check digit.
 isNormal :: Matrix Int -> Bool
-isNormal t =
+isNormal m =
     let
         isNormal' :: Int -> Bool
-        isNormal' i = get t 0 i == i
+        isNormal' i = get m 0 i == i
     in
         all isNormal' (range (0, limit))
 
 -- Simplifies checking the check digit at the end.
 -- If the list's end value (from 'get') is 0, then it's valid.
 isDiagonal :: Matrix Int -> Bool
-isDiagonal t =
+isDiagonal m =
     let
         isDiagonal' :: Int -> Bool
-        isDiagonal' i = get t i i == 0
+        isDiagonal' i = get m i i == 0
     in
         all isDiagonal' (range (0, limit))
 
 -- Detects every 'a' -> 'b' error.
 isLatin :: Matrix Int -> Bool
-isLatin t =
+isLatin m =
     let
         isLatin' :: [Int] -> Bool
         isLatin' is = length (group is) == inc limit
     in
-        (all isLatin' t) && (all isLatin' (transpose t))
+        (all isLatin' m) && (all isLatin' (transpose m))
 
 -- Detects every 'ab' -> 'ba' error.
 isTotallyAntiSymmetric :: Matrix Int -> Bool
-isTotallyAntiSymmetric t =
+isTotallyAntiSymmetric m =
     let
         isTotallyAntiSymmetric' :: Int -> Bool
         isTotallyAntiSymmetric' a =
@@ -66,7 +66,7 @@ isTotallyAntiSymmetric t =
                 isTotallyAntiSymmetric'' (y, x) =
                     let
                         get' :: Int -> Int -> Int
-                        get' = get t
+                        get' = get m
                     in
                         (a `get'` y `get'` x) /= (a `get'` x `get'` y)
             in
@@ -76,10 +76,10 @@ isTotallyAntiSymmetric t =
 
 -- Detects every '1a' -> 'a0' error, where is between 3 and 9 inclusive.
 isGermanicTotallyAntiSymmetric :: Matrix Int -> Bool
-isGermanicTotallyAntiSymmetric t =
+isGermanicTotallyAntiSymmetric m =
     let
         get' :: Int -> Int -> Int
-        get' = get t
+        get' = get m
         isGermanicTotallyAntiSymmetric' :: Int -> Bool
         isGermanicTotallyAntiSymmetric' a =
             let
