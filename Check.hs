@@ -57,25 +57,25 @@ isLatin m =
         (all isLatin' m) && (all isLatin' (transpose m))
 
 -- Detects every 'ab' -> 'ba' error.
-isTotallyAntiSymmetric :: Matrix Int -> Bool
-isTotallyAntiSymmetric m =
+isWeakTotallyAntiSymmetric :: Matrix Int -> Bool
+isWeakTotallyAntiSymmetric m =
     let
-        isTotallyAntiSymmetric' :: Int -> Bool
-        isTotallyAntiSymmetric' a =
+        isWeakTotallyAntiSymmetric' :: Int -> Bool
+        isWeakTotallyAntiSymmetric' a =
             let
                 toTuple :: [a] -> (a, a)
                 toTuple as = (as !! 0, as !! 1)
-                isTotallyAntiSymmetric'' :: (Int, Int) -> Bool
-                isTotallyAntiSymmetric'' (y, x) =
+                isWeakTotallyAntiSymmetric'' :: (Int, Int) -> Bool
+                isWeakTotallyAntiSymmetric'' (y, x) =
                     let
                         get' :: Int -> Int -> Int
                         get' = get m
                     in
                         (a `get'` y `get'` x) /= (a `get'` x `get'` y)
             in
-                all isTotallyAntiSymmetric'' (map toTuple (combinations 2 (range (0, limit))))
+                all isWeakTotallyAntiSymmetric'' (map toTuple (combinations 2 (range (0, limit))))
     in
-        all isTotallyAntiSymmetric' (range (0, limit))
+        all isWeakTotallyAntiSymmetric' (range (0, limit))
 
 -- Detects every '1a' -> 'a0' error, where is between 3 and 9 inclusive.
 isGermanicTotallyAntiSymmetric :: Matrix Int -> Bool

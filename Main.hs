@@ -21,7 +21,7 @@ check table =
         print' $ concat [show (isNormal table), " : normal"]
         print' $ concat [show (isDiagonal table), " : diagonal"]
         print' $ concat [show (isLatin table), " : latin"]
-        print' $ concat [show (isTotallyAntiSymmetric table), " : totally anti-symmetric"]
+        print' $ concat [show (isWeakTotallyAntiSymmetric table), " : weak totally anti-symmetric"]
         print' $ concat [show (isGermanicTotallyAntiSymmetric table), " : germanic totally anti-symmetric"]
         print' "--------------------"
 
