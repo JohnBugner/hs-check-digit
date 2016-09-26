@@ -7,6 +7,9 @@ import Extra.List (combinations)
 import Extra.Matrix (Matrix, get)
 import Extra.Number (inc)
 
+checkDigit :: Matrix Int -> [Int] -> Int
+checkDigit m = foldl (get m) 0
+
 -- Base 10 Limit
 limit :: Int
 limit = 9
